@@ -90,10 +90,26 @@ app
             
         };
 
-     // Limpa todos os dados da lista de análises chamando o comando via REST
+        // Limpa todos os dados da lista de análises chamando o comando via REST
         $scope.limparAnalises = function (analise) {
             $http.delete($scope.currentBaseUrl + '/conductor/analise/');
             $scope.recarregarPagina();
+        };
+        
+        //Retorna apenas os dados de análise pendentes
+        $scope.filtrarPendentes = function () {
+        	$http.get($scope.currentBaseUrl + '/conductor/analise/pendentes')
+            .then(function(response) {
+            	$scope.analises = response.data;
+            });
+        };
+        
+      //Retorna todos os dados de análise dos portadores
+        $scope.filtrarTodos = function () {
+        	$http.get($scope.currentBaseUrl + '/conductor/analise')
+            .then(function(response) {
+            	$scope.analises = response.data;
+            });
         };
         
         //Recarrega a página atual

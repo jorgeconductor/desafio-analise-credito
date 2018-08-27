@@ -56,6 +56,14 @@ public class AnaliseService {
 	public List<Analise> findAll() {
 		return analiseRepository.findAll();
 	}
+	
+	/**
+	 * Retorna os dados de análise que estão pendentes
+	 * @return lista de análise pendentes
+	 */
+	public List<Analise> findPendentes() {
+		return analiseRepository.findByAprovado(null);
+	}
 
 	/**
 	 * Salva os dados da análise requisitados, ao banco de dados

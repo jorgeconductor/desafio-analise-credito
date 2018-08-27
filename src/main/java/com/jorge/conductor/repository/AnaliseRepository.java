@@ -20,5 +20,7 @@ public interface AnaliseRepository extends JpaRepository<Analise, Long> {
 	 */
 	@Query(value = "SELECT * FROM analise a WHERE a.portador = :portadorId", nativeQuery = true)
 	public List<Analise> findByPortador(@Param("portadorId") Long id);
+	
+	List<Analise> findByAprovado(Boolean status);
 
 }

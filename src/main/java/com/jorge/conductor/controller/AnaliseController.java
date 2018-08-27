@@ -45,6 +45,15 @@ public class AnaliseController {
 	    }
 	    
 	    /**
+	     * Retorna os dados de análise apenas daqueles que estão pendentes ainda
+	     * @return os dados de análise pendentes
+	     */
+	    @RequestMapping(value = "/pendentes", method = RequestMethod.GET, produces = "application/json")
+	    public List<Analise> getPendentes() {
+	    	return analiseService.findPendentes();
+	    }
+	    
+	    /**
 	     * Edita os dados de uma análise específica e salva no banco 
 	     * @param analiseDTO a análise a ser editada
 	     * @param ids ID da análise a ser encontrada e editada
