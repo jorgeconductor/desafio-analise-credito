@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Verificar Ordem Serviço - Control</title>
+<meta name="description" content="Tela inicial do sistema de Serviços da empresa Control">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.css" />
+<link rel="stylesheet" href="app/styles/main.css">
+<link rel="icon" href="app/images/logo.ico">
+</head>
+
+
+<div ng-include="'app/views/header.html'"></div>
+
+<div class="container">
+	<div class="row content checkordem">
+		<h3>Verificar Ordem Serviço</h3>
+		<hr />
+		<form>
+			<div class="form-group">
+				<label for="ordemId">ID Ordem:</label> <input type="text" name="ordemId" id="servico_ordem_id" ng-model="ordemServicoEdicao.id"
+					class="form-control" disabled>
+			</div>
+			<div class="form-group">
+				<label for="servicoId">ID Serviço:</label> <input type="text" name="servicoId" id="servico_id" ng-model="ordemServicoEdicao.servico.id"
+					class="form-control" disabled>
+			</div>
+			<div class="form-group">
+				<label for="servicoDescricao">Descrição Serviço:</label> <input type="text" name="servicoDescricao" id="servico_descricao"
+					ng-model="ordemServicoEdicao.servico.descricao" class="form-control" disabled>
+			</div>
+			<div class="form-group">
+				<label for="servicoValor">Valor Serviço:</label> <input type="text" name="servicoValor" id="servico_ordem_servico"
+					ng-model="ordemServicoEdicao.servico.valor" class="form-control" disabled>
+			</div>
+			<div class="form-group">
+				<label for="quantidade">Quantidade:</label> <input type="number" min="1" class="form-control" name="quantidade"
+					ng-model="ordemServicoEdicao.quantidade" id="quantidade_ordem_servico" disabled>
+			</div>
+			<div class="form-group">
+				<label for="nomeFuncionario">Nome do Funcionário:</label> <input type="text" name="nomeFuncionario" id="nomeFuncionario_ordem_servico"
+					ng-model="ordemServicoEdicao.nomeFuncionario" class="form-control" maxlength="250" disabled>
+			</div>
+			<div class="form-group">
+				<label for="data">Data:</label> <input type="text" class="form-control" name="data" ng-model="ordemServicoEdicao.data"
+					value="{{ordemServicoEdicao.data}}" id="data_ordem_servico" disabled>
+			</div>
+			<div class="form-group">
+				<label for="horaInicio">Hora de Início:</label> <input type="text" class="form-control" name="horaInicio"
+					ng-model="ordemServicoEdicao.horaInicio" value="{{ordemServicoEdicao.horaInicio}}" id="horaInicio_ordem_servico" disabled>
+			</div>
+			<div class="form-group">
+				<label for="horaFim">Hora de Encerramento:</label> <input type="text" name="horaFim" id="horaFim_ordem_servico"
+					ng-model="ordemServicoEdicao.horaFim" value="{{ordemServicoEdicao.horaFim}}" class="form-control" disabled>
+			</div>
+			<div class="form-group">
+				<label for="detalhe">Detalhes:</label>
+				<textarea class="form-control" cols="40" rows="5" name="detalhe" ng-model="ordemServicoEdicao.detalhe" id="detalhe_ordem_servico" disabled> </textarea>
+			</div>
+			<a class="btn btn-primary  pull-right" href="/control/#!/ordem"> Voltar</a>
+		</form>
+	</div>
+</div>
+<hr />
+
+</html>

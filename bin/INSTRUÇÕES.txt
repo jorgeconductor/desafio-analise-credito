@@ -1,3 +1,6 @@
+AVISO: TUTORIAL DISPONÍVEL TAMBÉM NO README.md
+
+
 ## *Tutorial de Instalação*
 
 
@@ -15,13 +18,13 @@
 
 ### *Construindo o projeto*
 1. Tenha certeza que o NPM, Java 1.8, Maven e o servidor MySQL estão instalando e funcionando apropriadamente em sua máquina local
-2. Crie um banco de dados MySQL no seu servidor local e sete no arquivo ```application.properties``` na pasta ```desafio-analise-credito\src\main\resources``` a url do caminho do banco de dados, seu usuário e senha de acesso ao banco
-   - Exemplo: ```spring.datasource.url=jdbc:mysql://localhost/conductordb```
+2. Crie um banco de dados MySQL no seu servidor local e sete no arquivo ```application.properties``` na pasta ```desafio_control\src\main\resources``` a url do caminho do banco de dados, seu usuário e senha de acesso ao banco
+   - Exemplo: ```spring.datasource.url=jdbc:mysql://localhost/controldb```
 ```spring.datasource.username=root```
 ```spring.datasource.password=```
 3. Tenha certeza que seu servidor MySQL (podendo ser no Easy PHP ou qualquer outra plataforma que crie um servidor MySQL local) está rodando localmente e com banco de dados criado
-4. Faça o clone do projeto para a sua máquina local: ```git clone https://github.com/jorgeconductor/desafio-analise-credito.git``` e vá para a branch ```desafio_analise_credito```
-5. Navegue até a pasta raiz do projeto ```desafio-analise-credito```
+4. Faça o clone do projeto para a sua máquina local: ```git clone https://feitosajorge@bitbucket.org/feitosajorge/desafio_control.git```
+5. Navegue até a pasta raiz do projeto ```desafio_control```
 6. Tenha certeza que tem o NPM instalado em sua máquina e está na variável de ambiente do sistema
 7. Instale o Bower usando o comando NPM via linha de comando: ```npm install -g bower```
 8. Execute via linha de comando ainda na pasta raiz do projeto: ```bower install```
@@ -30,15 +33,15 @@
    - Pode executar o maven usando sua IDE, ao invés
 
 ### *Como executar o projeto*
-* Execute o comando abaixo na raiz do projeto ```desafio-analise-credito```:
+* Execute o comando abaixo na raiz do projeto ```desafio_control```:
 ```mvn spring-boot:run```
-* Acesse sua porta local com o /conductor/ como base, exemplo:
-```http://127.0.0.1:8080/conductor/```
+* Acesse sua porta local com o /control/ como base, exemplo:
+```http://127.0.0.1:8080/control/```
 
 ### *Screenshots*
 
-![página inicial]()
+![página inicial](https://i.imgur.com/7s7d4fp.png)
 
-![página de portadores]()
+![página de ordens de serviço](https://i.imgur.com/KrfbdLy.png)
 
-![página de análise]()
+![página de relatório](https://i.imgur.com/cokRbIc.png)

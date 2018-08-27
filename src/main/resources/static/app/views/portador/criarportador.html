@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sistema de Análise de Créditos - Conductor</title>
+<meta name="description" content="Tela inicial do sistema de Serviços da empresa Conductor">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.css" />
+<link rel="stylesheet" href="app/styles/main.css">
+<link rel="icon" href="app/images/logo.ico">
+</head>
+
+<div ng-include="'app/views/header.html'"></div>
+
+<div class="container">
+	<div class="row content checkordem" >
+		<h3>Criar Novo Portador</h3>
+		<hr />
+		<form ng-submit="criarPortador(port)">
+			<div class="form-group">
+				<label for="nome">Nome:</label> <input type="text" name="nome" id="nome_portador" ng-model="port.nome" class="form-control"
+					maxlength="250" placeholder="Insira o nome do portador" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label> <input type="email" class="form-control" name="email" ng-model="port.email" id="email_portador"
+					placeholder="Insira o email do portador" required>
+			</div>
+			<div class="form-group">
+				<label for="endereco">Endereço:</label> <input type="text" class="form-control" name="endereco" ng-model="port.endereco"
+					id="endereco_portador" maxlength="250" placeholder="Insira o endereço do portador" required>
+			</div>
+			<div class="form-group">
+				<label for="rg">RG:</label> <input type="text" class="form-control" name="rg" ng-model="port.rg" id="rg_portador"
+					placeholder="Insira o rg do portador" maxlength="12" required>
+			</div>
+			<div class="form-group">
+				<label for="cpf">CPF:</label> <input type="text" class="form-control" name="cpf" ng-model="port.cpf" id="cpf_portador"
+					placeholder="Insira o cpf do portador" maxlength="20" required>
+			</div>
+			<div class="form-group">
+				<label for="dataNascimento">Data de Nascimento:</label> <input type="date" class="form-control" name="dataNascimento"
+					ng-model="port.dataNascimento" id="data_nascimento_portador" placeholder="Insira a data de nascimento do portador" required>
+			</div>
+			<div class="form-group">
+				<label for="telefone">Telefone para Contato:</label> <input type="text" class="form-control" name="telefone" ng-model="port.telefone"
+					id="telefone_portador" maxlength="40" placeholder="Insira o telefone do portador" required>
+			</div>
+			<div class="form-group">
+				<label for="profissao">Profissão:</label> <input type="text" class="form-control" name="profissao" ng-model="port.profissao"
+					id="profissao_portador" maxlength="250" placeholder="Insira a profissão do portador" required>
+			</div>
+			<div class="form-group">
+				<label for="salario">Faixa Salarial:</label> <input type="number" min="1" class="form-control" name="salario" ng-model="port.salario"
+					id="faixa_salarial_portador"  placeholder="Insira a faixa salarial da profissão do portador" required>
+			</div>
+			<div class="form-group">
+				<label for="spc">No SPC:</label>
+				<select name="spc" id="spc_portador" class="form-control" ng-model="port.spc" required>
+					<option value="" selected disabled>---Por favor selecione---</option>
+					<option value="Sim">Sim</option>
+					<option value="Não">Não</option>
+			    </select>
+			</div>
+			<button type="submit" class="btn btn-success btn-space  pull-right">Criar</button>
+			<div>
+				<a class="btn btn-primary btn-space pull-right" href="/conductor/#!/"> Voltar</a>
+			</div>
+		</form>
+	</div>
+</div>
+<hr />
+
+</html>

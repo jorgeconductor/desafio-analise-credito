@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sistema de Ordem de Serviços - Control</title>
+<meta name="description" content="Tela inicial do sistema de Serviços da empresa Control">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.css" />
+<link rel="stylesheet" href="app/styles/main.css">
+<link rel="icon" href="app/images/logo.ico">
+</head>
+
+<div ng-include="'app/views/header.html'"></div>
+
+<div class="container">
+
+	<div class="ord box_1" style="float: left">
+		<h3 class="total">
+			<span class="ordem_total">Ordem de Serviços <img src="app/images/ordemservico.png" alt="" height="50" width="50">
+			</span>
+		</h3>
+	</div>
+
+
+	<div class="panel-body">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Servico</th>
+					<th>Quantidade</th>
+					<th>Funcionário</th>
+					<th>Data de Execução</th>
+					<th class="text-right">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="ordem in ordemServico">
+					<td>{{ ordem.id }}</td>
+					<td>{{ ordem.servico.descricao }}</td>
+					<td>{{ ordem.quantidade }}</td>
+					<td>{{ ordem.nomeFuncionario }}</td>
+					<td>{{ ordem.data | date : "dd.MM.y" }}</td>
+					<td class="text-right">
+						<button type="submit" class="btn btn-danger" ng-click="deletarOrdemServico(ordem)">
+							Deletar &nbsp; <span class="	glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button> <a type="submit" class="btn btn-primary" ng-click="editarOrdemServico(ordem)" href="/control/#!/atualizarordem">Atualizar &nbsp; <span
+							class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> <a type="submit" class="btn btn-success"
+						ng-click="verificarOrdemServico(ordem)" href="/control/#!/verificarordem">Detalhes &nbsp; <span class="glyphicon glyphicon-plus"
+							aria-hidden="true"></span></a>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</div>

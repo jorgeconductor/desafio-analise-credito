@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sistema de Análise de Créditos - Conductor</title>
+<meta name="description" content="Tela inicial do sistema de Serviços da empresa Conductor">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.css" />
+<link rel="stylesheet" href="app/styles/main.css">
+<link rel="icon" href="app/images/logo.ico">
+
+
+</head>
+
+
+<div class="header" ng-controller="GlobalCtrl">
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<img src="app/images/logo.png" alt="" height="50" width="80" class="pull-left">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+					<span class="sr-only">Navegação</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+
+			</div>
+
+			<div class="collapse navbar-collapse" id="js-navbar-collapse" >
+
+				<ul class="nav navbar-nav">
+					<li ng-show="!!portadorLink"><a href="{{portadorLink}}">Portadores</a></li>
+					<li ng-show="!!analistaLink"><a href="{{analistaLink}}">Análise Crédito</a></li>
+					<li ng-show="!!captadorLink"><a href="{{captadorLink}}">Análise Crédito</a></li>
+				</ul>
+				
+				<ul class="nav navbar-nav logout pull-right">
+					<li><a>Bem vind@ {{nomeusuario}}!</a></li>
+					<li><a href ng-click="logout()">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

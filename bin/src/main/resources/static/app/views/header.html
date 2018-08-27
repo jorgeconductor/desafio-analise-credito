@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sistema de Serviços - Control</title>
+<meta name="description" content="Tela inicial do sistema de Serviços da empresa Control">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.css" />
+<link rel="stylesheet" href="app/styles/main.css">
+<link rel="icon" href="app/images/logo.ico">
+
+
+</head>
+
+
+<div class="header" ng-controller="GlobalCtrl">
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/control/#!/"><img src="app/images/logo.png" alt="" height="50" width="80" class="pull-left"></a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+					<span class="sr-only">Navegação</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="/control/#!/">Serviço Control<span class="glyphicon icon-shopping-bag"></span></a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="js-navbar-collapse" >
+
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/control/#!/ordem">Ordem de Serviço</a></li>
+					<li class="active"><a href="/control/#!/relatorio">Relatório</a></li>
+					
+				</ul>
+				
+				<ul class="nav navbar-nav logout pull-right">
+					<li><a>Bem vind@ {{nomeusuario}}!</a></li>
+					<li><a href ng-click="logout()">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

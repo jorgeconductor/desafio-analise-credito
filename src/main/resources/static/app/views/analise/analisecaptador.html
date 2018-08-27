@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sistema de Análise de Créditos - Conductor</title>
+<meta name="description" content="Tela inicial do sistema de Serviços da empresa Conductor">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.css" />
+<link rel="stylesheet" href="app/styles/main.css">
+<link rel="icon" href="app/images/logo.ico">
+</head>
+
+<div ng-include="'app/views/header.html'"></div>
+
+<div class="container">
+
+	<div class="ord box_1" style="float: left">
+		<h3 class="total">
+			<span class="ordem_total">Análise dos Portadores <img src="app/images/ordemservico.png" alt="" height="50" width="50">
+			</span>
+		</h3>
+	</div>
+
+
+	<div class="panel-body">
+		<table class="table table-hover">
+			
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nome</th>
+					<th>Profissão</th>
+					<th>SPC</th>
+					<th>CPF</th>
+					<th>Data de Análise</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+
+				<tr ng-repeat="anls in analises">
+					<td>{{ anls.id }}</td>
+					<td>{{ anls.portador.nome }}</td>
+					<td>{{ anls.portador.profissao }}</td>
+					<td>{{ anls.portador.spc | isSpc}}</td>
+					<td>{{ anls.portador.cpf }}</td>
+					<td>{{ anls.dataAnalise | date : "dd.MM.y" }}</td>
+					<td>{{ anls.aprovado | isAproved}}</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</div>

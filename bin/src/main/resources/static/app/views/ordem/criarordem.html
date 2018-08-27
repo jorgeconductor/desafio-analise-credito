@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Criar Ordem Servico - Control</title>
+<meta name="description" content="Tela inicial do sistema de Serviços da empresa Control">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.css" />
+<link rel="stylesheet" href="app/styles/main.css">
+<link rel="icon" href="app/images/logo.ico">
+</head>
+
+
+<div ng-include="'app/views/header.html'"></div>
+
+<div class="container">
+	<div class="row content createordem">
+		<h3>Criar Ordem Serviço</h3>
+		<hr />
+		<form ng-submit="inserirOrdemServico(ordemServicoEdicao)">
+			<div class="form-group">
+				<label for="servico">Serviço:</label> <input type="text" name="servico" id="servico_ordem_servico" ng-model="ordemServicoEdicao.descricao"
+					class="form-control" disabled>
+			</div>
+			<div class="form-group">
+				<label for="quantidade">Quantidade:</label> <input type="number" min="1" max="999" class="form-control" name="quantidade"
+					ng-model="ordemServicoEdicao.quantidade" id="quantidade_ordem_servico" placeholder="Quantidade do serviço executado" required>
+			</div>
+			<div class="form-group">
+				<label for="nomeFuncionario">Nome do Funcionário:</label> <input type="text" name="nomeFuncionario" id="nomeFuncionario_ordem_servico"
+					ng-model="ordemServicoEdicao.nomeFuncionario" placeholder="Digite o nome do funcionário" class="form-control" maxlength="250" required>
+			</div>
+			<div class="form-group">
+				<label for="data">Data de Execução:</label> <input type="text" class="form-control" name="data" ng-model="ordemServicoEdicao.data"
+					pattern="(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/\d{4}" placeholder="26/11/2018" id="data_ordem_servico" required>
+			</div>
+			<div class="form-group">
+				<label for="horaInicio">Hora de Início:</label> <input type="text" class="form-control" name="horaInicio"
+					ng-model="ordemServicoEdicao.horaInicio" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" placeholder="10:18" id="horaInicio_ordem_servico"
+					required>
+			</div>
+			<div class="form-group">
+				<label for="horaFim">Hora de Encerramento:</label> <input type="text" name="horaFim" id="horaFim_ordem_servico"
+					ng-model="ordemServicoEdicao.horaFim" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" placeholder="11:18" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label for="detalhe">Detalhes:</label>
+				<textarea class="form-control" cols="40" rows="5" maxlength="500" name="detalhe" placeholder="Escreva os detalhes do serviço executado"
+					ng-model="ordemServicoEdicao.detalhe" id="detalhe_ordem_servico"> </textarea>
+			</div>
+			
+			
+			<div><button type="submit" class="btn btn-success btn-space  pull-right">Criar</button></div>
+			
+			<div><a class="btn btn-primary btn-space pull-right" href="/control/#!/"> Voltar</a></div>
+			
+		</form>
+	</div>
+</div>
+<hr />
+
+</html>
