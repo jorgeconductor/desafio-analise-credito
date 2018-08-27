@@ -26,7 +26,7 @@
 7. Instale o Bower usando o comando NPM via linha de comando: ```npm install -g bower```
 8. Execute via linha de comando ainda na pasta raiz do projeto: ```bower install```
 9. Tenha certeza que contém o Maven instalado em sua máquina ou em sua IDE, caso queira usar um para rodar o código
-10. Execute o comando na pasta raiz do projeto via CMD: ```mvn clean install -DskipTests``` o -DskipTests é para pular os testes enquanto instalando, não é obrigatório usar
+10. Execute o comando na pasta raiz do projeto via CMD: ```mvn clean install -DskipTests``` o -DskipTests é para pular os testes enquanto instalando, caso queira executar os testes remova o ```-DskipTests```
    - Pode executar o maven usando sua IDE, ao invés
 
 ### *Como executar o projeto*

@@ -167,6 +167,7 @@ var app = angular
         	// redireciona para a página de login se não estiver logando ou estiver tentando acessar uma página restrista
             var restrictedPage = $.inArray($location.path(), ['/login', '/registrar']) === -1;
             var loggedIn = $rootScope && $rootScope.globals && $rootScope.globals.funcionarioAtual ? true : false;
+            
             if (restrictedPage && !loggedIn) {
                 $location.path('login');
             } else if (loggedIn) {
@@ -179,7 +180,7 @@ var app = angular
             			$location.path('analise-analista');
             		}
             	} else {
-            		var restrictedPage = $.inArray($location.path(), ['/analise-analista', '/criaranalise', '/atualizaranalise']) > 0;
+            		var restrictedPage = $.inArray($location.path(), ['/analise-analista', '/criaranalise', '/atualizaranalise']) >= 0;
             		if(restrictedPage) {
             			$location.path('analise-captador');
             		}
