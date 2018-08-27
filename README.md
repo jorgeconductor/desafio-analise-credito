@@ -42,3 +42,5 @@
 ![página de portadores](https://i.imgur.com/pIK6U12.png)
 
 ![página de análise](https://i.imgur.com/0EiDKCd.png)
+
+![página de análise - limitado](https://i.imgur.com/eJBEAvU.png)
