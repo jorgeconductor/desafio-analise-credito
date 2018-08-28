@@ -29,7 +29,7 @@ app
             function(response) { // opcional
             	BootstrapDialog.show({
                     title: 'Erro',
-                    message: 'Erro ao registrar novo funcionário!'
+                    message: 'Erro ao registrar novo funcionário! Provavelmente o e-mail já existe, tente um outro diferente.'
                 });
             });
             
