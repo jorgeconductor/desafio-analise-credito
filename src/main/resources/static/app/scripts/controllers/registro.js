@@ -12,7 +12,6 @@ app
     	 */
     	$scope.registrar = function (reg) {
     		$scope.registro = {};
-    		console.log(JSON.stringify(reg));
     		$scope.registro.nome = reg.nome;
     		$scope.registro.email = reg.email;
     		$scope.registro.senha = reg.senha;

@@ -1,11 +1,15 @@
 package com.jorge.conductor.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.jorge.conductor.ConductorServiceApp;
 import com.jorge.conductor.domain.Funcionario;
 import com.jorge.conductor.dto.FuncionarioDTO;
+import com.jorge.conductor.dto.FuncionarioLoginDTO;
 import com.jorge.conductor.repository.FuncionarioRepository;
 
 import javax.transaction.Transactional;
@@ -29,10 +33,15 @@ public class FuncionarioService {
      * Adiciona informações iniciais ao banco, caso o mesmo esteja vazio
      */
     static {
-    	funcionarios.add(new Funcionario("jorg3.f3itosa@gmail.com", "Jorge Lima", "123456", true));
-    	funcionarios.add(new Funcionario("niedja@gmail.com", "Niédja Maria", "123456", false));
-    	funcionarios.add(new Funcionario("nadia@gmail.com", "Nádia Lima", "123456", true));
-    	funcionarios.add(new Funcionario("ramon@gmail.com", "Ramon Garcia", "123456", false));
+    	funcionarios.add(new Funcionario("jorg3.f3itosa@gmail.com", "Jorge Lima", passwordEncoder().encode("123456"), true));
+    	funcionarios.add(new Funcionario("niedja@gmail.com", "Niédja Maria", passwordEncoder().encode("123456"), false));
+    	funcionarios.add(new Funcionario("nadia@gmail.com", "Nádia Lima", passwordEncoder().encode("123456"), true));
+    	funcionarios.add(new Funcionario("ramon@gmail.com", "Ramon Garcia", passwordEncoder().encode("123456"), false));
+    }
+    
+    @Bean
+    public static PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
     
     /**
@@ -48,6 +57,16 @@ public class FuncionarioService {
     }
     
     /**
+     * Verifica se o funcionário existe e se o email e senha batem com o armazenado no banco de dados
+     * @param funcionarioLoginDTO dados de email e senha do funcionário
+     * @return os dados do funcionário logado
+     */
+    public Funcionario senhaBate(FuncionarioLoginDTO funcionarioLoginDTO) {
+    	Funcionario funcionario = funcionarioRepository.findByEmail(funcionarioLoginDTO.getEmail());
+    	return passwordEncoder().matches(funcionarioLoginDTO.getSenha(), funcionario.getSenha()) ? funcionario : null;
+    }
+    
+    /**
      * Salva os dados do funcionário requisitados, ao banco de dados
      * @param funcionarioDTO dados vindo da view para ser persistido
      * @return os dados do funcionário salvo
@@ -56,7 +75,7 @@ public class FuncionarioService {
 		Funcionario funcionario = new Funcionario();
 		funcionario.setNome(funcionarioDTO.getNome());
 		funcionario.setEmail(funcionarioDTO.getEmail());
-		funcionario.setSenha(funcionarioDTO.getSenha());
+		funcionario.setSenha(passwordEncoder().encode(funcionarioDTO.getSenha()));
 		funcionario.setAnalista(funcionarioDTO.getAnalista());
         return funcionarioRepository.save(funcionario);
     }
@@ -71,7 +90,7 @@ public class FuncionarioService {
     	Funcionario atualizarItem = funcionarioRepository.findOne(id);
     	atualizarItem.setNome(funcionarioDTO.getNome());
     	atualizarItem.setEmail(funcionarioDTO.getEmail());
-    	atualizarItem.setSenha(funcionarioDTO.getSenha());
+    	atualizarItem.setSenha(passwordEncoder().encode(funcionarioDTO.getSenha()));
     	atualizarItem.setAnalista(funcionarioDTO.getAnalista());
         return funcionarioRepository.save(atualizarItem);
     }

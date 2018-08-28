@@ -10,6 +10,7 @@
 * [Java 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 * MySQL
 * Spring Boot
+* Spring Security
 * [Maven](https://maven.apache.org/download.cgi)
 * Servidor MySQL local rodando (Easy PHP DEVSERVER, XAMPP ou similar)
 

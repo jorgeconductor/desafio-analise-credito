@@ -24,7 +24,7 @@ public class Funcionario implements Serializable {
 	private String nome;
 	
 	// Cria o campo do email no formato varchar com largura 255 e não pode ser nulo
-	@Column(name = "email")
+	@Column(name = "email", unique=true)
 	@NotNull
 	private String email;
 	

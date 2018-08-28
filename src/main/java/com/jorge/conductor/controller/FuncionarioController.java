@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jorge.conductor.domain.Funcionario;
 import com.jorge.conductor.dto.FuncionarioDTO;
+import com.jorge.conductor.dto.FuncionarioLoginDTO;
 import com.jorge.conductor.service.FuncionarioService;
 
 /**
@@ -55,6 +56,15 @@ public class FuncionarioController {
 	public List<Funcionario> getAll() {
 		return funcionarioService.findAll();
 	}
+	
+	/**
+     * Verifica se a senha bate do funcionário
+     * @return se a senha é a mesma
+     */
+    @RequestMapping(value = "/pass", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+    public Funcionario getSenhaBate(@RequestBody FuncionarioLoginDTO funcionarioLoginDTO) {
+    	return funcionarioService.senhaBate(funcionarioLoginDTO);
+    }
 
 	/**
 	 * Item do funcionario a ser deletado
